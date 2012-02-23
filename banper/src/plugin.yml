@@ -1,0 +1,13 @@
+name: banper
+main: banper.mc.banper
+version: 0.2
+website: http://time-work-mc.ru
+author: XkelX & Stranger
+softdepend:
+        - 'Permissions'
+description: >
+                        The part of integration of bukkit MC server and wordpress plugin (MCBans) 
+commands:
+  banper:
+        description: put information about plugin
+        usage: |
