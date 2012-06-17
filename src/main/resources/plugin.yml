@@ -1,0 +1,13 @@
+name: banper
+main: org.gamegen.banper.banper
+version: 0.2
+website: http://gamegen.org
+author: Stranger
+softdepend:
+        - 'PermissionsEx'
+description: >
+                        The part of integration of bukkit MC server and wordpress plugin (MCBans) 
+commands:
+  banper:
+        description: put information about plugin
+        usage: |
