@@ -19,16 +19,19 @@ import ru.tehkode.permissions.PermissionUser;
 import ru.tehkode.permissions.bukkit.PermissionsEx;
 
 public class banper extends JavaPlugin {
+    @SuppressWarnings("NonConstantLogger")
 	Logger log = Logger.getLogger("Minecraft");
 	public String login;
 	public String password;
 	public String url;
 	public String token;
 	
+    @Override
 	public void onDisable() {
 		log.info(String.format("[%s] Disabled Version %s", getDescription().getName(), getDescription().getVersion()));
 	}
 	
+    @Override
 	public void onEnable() {
         log.info(String.format("[%s] Enabled Version %s", getDescription().getName(), getDescription().getVersion()));
 		login = this.getConfig().getString("login");
@@ -38,6 +41,7 @@ public class banper extends JavaPlugin {
         this.saveConfig();
 	}
 	
+    @Override
 	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args){
 		Player player = (Player) sender;
 		if(cmd.getName().equalsIgnoreCase("banper")){
@@ -58,6 +62,7 @@ public class banper extends JavaPlugin {
 		return false; 
 	}
 	
+    @SuppressWarnings("CallToThreadDumpStack")
     public static String createMD5(String raw){
 	       String output = null;
 	       try
@@ -74,6 +79,7 @@ public class banper extends JavaPlugin {
 	       return output;
     }
 	
+    @SuppressWarnings("CallToThreadDumpStack")
 	public static String excutePost(String targetURL, String urlParameters){
 
       HttpURLConnection connection = null;
@@ -101,7 +107,7 @@ public class banper extends JavaPlugin {
         InputStream is = connection.getInputStream();
         BufferedReader rd = new BufferedReader(new InputStreamReader(is));
 
-        StringBuffer response = new StringBuffer();
+        StringBuilder response = new StringBuilder();
         String line;
         while ((line = rd.readLine()) != null)
         {
